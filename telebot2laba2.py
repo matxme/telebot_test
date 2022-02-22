@@ -24,22 +24,22 @@ def get_text_messages(message):
     chat_id = message.chat.id
     ms_text = message.text
 
-    if ms_text == "Main menu" or ms_text == "Main menu" or ms_text == "Вернуться в главное меню":  # ..........
+    if ms_text == "Main menu" or ms_text == "Main menu" or ms_text == "Back to main menu":  # ..........
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-        btn1 = types.KeyboardButton("Развлечения")
+        btn1 = types.KeyboardButton("some gags")
         btn2 = types.KeyboardButton("WEB-камера")
         btn3 = types.KeyboardButton("Управление")
         back = types.KeyboardButton("Help")
         markup.add(btn1, btn2, btn3, back)
         bot.send_message(chat_id, text="Вы в главном меню", reply_markup=markup)
 
-    elif ms_text == "Развлечения":  # ..................................................................................
+    elif ms_text == "some gags":  # ..................................................................................
         markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
         btn1 = types.KeyboardButton("Прислать собаку")
         btn2 = types.KeyboardButton("Прислать анекдот")
-        back = types.KeyboardButton("Вернуться в главное меню")
+        back = types.KeyboardButton("Back to main menu")
         markup.add(btn1, btn2, back)
-        bot.send_message(chat_id, text="Развлечения", reply_markup=markup)
+        bot.send_message(chat_id, text="some gags", reply_markup=markup)
 
     elif ms_text == "/dog" or ms_text == "Прислать собаку":  # .........................................................
         bot.send_message(chat_id, text="еще не готово...")
@@ -62,7 +62,7 @@ def get_text_messages(message):
         #bot.send_photo(message.chat.id, img, reply_markup=key1)
 
     else:  # ...........................................................................................................
-        bot.send_message(chat_id, text="Я тебя слышу!!! Ваше сообщение: " + ms_text)
+        bot.send_message(chat_id, text="несуществующая команда - Ваше сообщение: " + ms_text)
 
 # -----------------------------------------------------------------------
 bot.polling(none_stop=True, interval=0) # Запускаем бота
